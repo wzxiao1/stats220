@@ -1,6 +1,7 @@
 ---
-title: "title goes here"
-author: "who am I?"
+title: "Creating images with R"
+"with a little bit of magick"
+author: "William Xiao"
 output: html_document
 ---
 

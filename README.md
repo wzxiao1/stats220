@@ -1,5 +1,5 @@
 ## About
-- This repository was made for the **University of Auckland's** *STATS220* course, it will mainly be comprised of R projects done over the semester. 
+- This repository was made for the [**University of Auckland's** *STATS220* course](https://courseoutline.auckland.ac.nz/dco/course/STATS/220/1213), it will mainly be comprised of R projects done over the semester. 
 - 5 projects
 
 # R projects and libraries used

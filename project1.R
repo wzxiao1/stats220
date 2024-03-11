@@ -1,3 +1,4 @@
+# libraries
 library(tidyverse)
 library(magick)
 
@@ -9,19 +10,20 @@ circle_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Circle_-
 happy_people_url = "https://t3.ftcdn.net/jpg/04/84/87/34/360_F_484873483_hg1ofIdXbMha5lKEDG3hJBrwKh1oikTq.jpg"
 happy_people = image_read(happy_people_url) %>% image_scale(500)
 
-# image manipulation
-face_image = image_read(circle_url) %>%
+# image manipulation to create word panels
+face_image = image_read(circle_url) %>% #makes face
   image_scale(500)
-meme_text_linux = image_blank(height = 500,
+meme_text_linux = image_blank(height = 500, #makes lower text
                         width = 500,
                         color = "black") %>%
             image_annotate(font = "comic sans", gravity = "North", color = "white", text = "Linux users:\nbuilding from source", size = 50)
-meme_text_windows = image_blank(width = 500,
+meme_text_windows = image_blank(width = 500, # makes upper text
                                 height = 500,
-                                color = "black") %>%
+                                color = "black") %>% 
   image_annotate(font = "comic sans", gravity = "center", color = "white", text = "Everyone else:\ninstalling R packages", size = 50)
 
-#animation for Linux half
+#animation for Linux half (gif)
+#each frame is the face_image made changed slightly
 frame1 = face_image %>% 
   image_annotate(text=emotions[1], size = 100, gravity="center", degrees = 90) %>% 
   image_scale(500) %>%
@@ -52,6 +54,7 @@ frame6 = explosion_image %>%
   image_extent("500x500")
 
 # making the different rows requiring for the GIF
+# combining the different frames of the gif with its horizontal text
 first_row = c(happy_people, meme_text_windows) %>% 
   image_append()
 second_row = c(frame1, meme_text_linux) %>% 
@@ -68,6 +71,7 @@ second_row6 = c(frame6, meme_text_linux) %>%
   image_append()
 
 # creation of the different frames of the meme
+# vertically stacking the upper and and different lower rows created above
 meme = c(first_row, second_row) %>%
   image_append(stack = TRUE)
 meme2 = c(first_row, second_row2) %>%
@@ -90,9 +94,9 @@ animation
 
 # the finalized meme and GIF
 my_meme = meme %>%
-  image_write('my_meme.png')
+  image_write('my_meme.png') # saved as png
 my_animation = animation %>%
-  image_write('my_animation.gif')
+  image_write('my_animation.gif') # saved as gif
 my_meme
 my_animation
 

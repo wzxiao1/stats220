@@ -12,6 +12,8 @@ output: html_document
 ```{css}
 body {
   font-family: "Times New Roman", Times, serif;
+  background: linear-gradient(to right, orange, gold, lightblue);
+  
 }
 h1 {
   color: turquoise
@@ -26,7 +28,7 @@ h3 {
 }
 
 h4{
-  color: orange
+  color: black
 }
 ```
 

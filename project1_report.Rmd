@@ -78,8 +78,7 @@ second_row = c(frame1, meme_text_linux) %>% # putting the face and the bottom te
   image_append()
 meme = c(first_row, second_row) %>% # putting top and bottom row together vertically stacking
   image_append(stack = TRUE)
-# the meme
-meme
+
 
 ```
 

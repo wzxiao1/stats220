@@ -1,0 +1,105 @@
+---
+title: "Project2"
+subtitle: "STATS 220 Semester One 2024"
+author: "William Xiao"
+output:
+  html_document:
+    code_folding: hide
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=TRUE, message=FALSE, warning=FALSE, error=FALSE)
+```
+
+```{css}
+body {
+  font-family: "Merriweather";
+  background: linear-gradient(to right, lightgreen, gold, turquoise);
+  
+}
+h1 {
+  color: lightblue
+}
+
+h2 {
+  color: orange
+}
+
+h3 {
+  color: silver
+}
+
+h4{
+  color: black
+}
+```
+
+## Introduction
+
+[Github](https://github.com/wzxiao1/stats220)
+
+-   In my Google Form I have decided to investigate on the time people spend on gaming per week and what is the longest time they've spent gaming in a single day in one week, whether they listened to music or not and have spent money on cosmetics in free to play games and also the different platforms they have gamed on.
+
+-   For my questions, asking for the time spent on gaming per week and also longest game time a day, I have used short answers to obtain numeric information, but I have made it so that it will only accept non-negative numeric data as a response validation and an error message that tells the person filling it out to change their answer to a non-negative number, so people would not add uneeded information such as characters in their answers.
+
+-   The data collected from questions "How much time do you think you gamed this week?" and "Which of the platform(s) do you game on?" could show a difference in human behaviour in different weeks. Due to if a person were to game on more platforms they could potentially game more in a week, or perhaps they might even have different game time a week depending on which platform they choose to play on.
+
+-   Link to form [<https://forms.gle/yWokvZeaU3nRUmXNA>]
+
+## Analytics
+
+1.  
+
+    ### Everyone has played on a PC before.
+
+```{r code1}
+library(tidyverse)
+# reading in data and renaming the columns
+learning_data <- read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vQalG7g4rUZFw6DUp7axOtx8xWo7PwCUn8yIT2I2-MVoNNWj3EInTsMIkggKRgKb9tcb0i5sye5jav_/pub?output=csv") %>%
+  rename(hours_gamed_this_week = 2,
+         longest_hour_gamed_in_single_day_this_week = 3,
+         music_when_gaming = 4,
+         cosmetics_bought_in_free_games = 5,
+         platforms = 6)
+# creating a bar chart that shows the frequencies of the different platforms gamed on
+learning_data %>%
+  ggplot() +
+  geom_bar(aes(x = platforms, fill = platforms)) +
+  labs(title = "Platforms particpants games on",
+       subtitle = "Counts of platform",
+       caption = "From Gaming Questionnaire")
+```
+
+2.  
+
+    ### It would seem that as one games for longer period of time in a day, they are more likely to buy cosmetics in a free to play game.
+
+```{r code2}
+# creating a bar chart that shows how longest game time in a single day corresponds to buying cosmetics in free game
+learning_data %>%
+  ggplot() +
+  geom_bar(aes(x = longest_hour_gamed_in_single_day_this_week, fill = cosmetics_bought_in_free_games)) +
+  labs(title = "More time spent gaming in a day equates to\n spending money on cosmetics in free2play games?",
+       subtitle = "Comparing longest_hours_gamed_in_single_day_this_week and\n frequency of cosmetics_bought_in_free_games for participant on gaming survey",
+       caption = "From Gaming Questionnaire",
+       x = "longest_hour_gamed_in_single_day_this_week(hours)",
+       y = "cosmetics_bought_in_free_games")
+```
+
+3.  
+
+    ### The minimum time someone spent gaming this week in the survey was 0 hours and the maximum time someone spent gaming this week in the survey was 100 hours.
+
+```{r code3, echo=FALSE}
+paste("The longest someone in the survey gamed this week was", max(learning_data$hours_gamed_this_week), "hours", "whilst the shortest time was", min(learning_data$hours_gamed_this_week),"hours")
+```
+
+## Creativity
+
+I have used CSS to make a gradient in my R Markdown file and changed the font and colour of headings. It wasn't required in this project but I added it anyway. I also applied markdown techniques I have learnt in the past lab in the project such as links and different level headings, bullet points and also ordered points.
+
+## Learning reflection
+
+For what I have learnt to do in web-based dynamic reporting systems - I have learnt about how to turn Google Form responses into CSV files and load them into my R files, which will be incredibly useful for the future where I will need to collect data for studies. I have learnt how to use Tidyverse further in using read_csv() and rename() to create data frames and manipulate the column names variable names and use ggplot to create various forms of bar charts, either single variable ones with frequency or 2 variables against each other. And of course filling the bar charts with colour, to more easily make conclusions on the obtained data.
+
+For what I want to learn - I would love to instead of obtaining information that is purely numeric or categorical by selection, I would like to collect perhaps short answer sentence feed backs from users. And perhaps categorizes them as positive, negative or neutral with techniques like sentiment analysis or something or the sort. It would be very fun to learn how to train a model to do this.

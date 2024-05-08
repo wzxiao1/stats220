@@ -1,0 +1,92 @@
+---
+title: "Project 4"
+subtitle: "STATS 220 Semester One 2024"
+author: "William Xiao"
+output:
+  html_document:
+    code_folding: hide
+---
+
+```{r setup, include=FALSE}
+  knitr::opts_chunk$set(echo=TRUE, message=FALSE, warning=FALSE, error=FALSE)
+  library(tidyverse)
+  library(magick)
+```
+
+```{css echo=FALSE}
+body {
+  font-family: "Helvetica";
+  background: linear-gradient(to right, pink, gold, turquoise);
+  
+}
+h1 {
+  color: lightblue
+}
+
+h2 {
+  color: orange
+}
+
+h3 {
+  color: silver
+}
+
+h4{
+  color: black
+}
+```
+
+## Introduction
+
+### The two channels I used:
+
+1. FoxNews
+2. MSNBC
+
+### 2 ideas
+
+1. I wanted to compare the difference in reception of likes and views of 2 news sources that has 2 polar opposite idealogies, comparing the likes/view ratio with bar chart or perhaps line graphs
+2. I wanted to see which channel covered more content on the president of the United States Joe Biden using a pie chart to show it
+
+
+### summary of what I tried:
+
+1. I first tried making a time line graph with x-axis year published and y being the frequency, and wanted to create 2 different colored lines within the same graph however, the data collected did not seem to work well with a line, as the graphs produced very extreme changes from very high frequency to 0, probably due to the sample not containing a wide spread enough set of data
+
+2. graphs I chose:
+
+- barchart: shows easy visualization of the frequency of videos posted by Biden of the 2 new sources, as they are side by side
+- pie chart: good for showing proportion, in which the sample of data showed that FoxNews had more coverage of Biden then MSNBC
+- boxwhisker: shows distribution of the quartiles, and mean of the like to view ratio, which can be more easily used in visualizing the differencing in the likes and views the videos get when Biden is in the title
+
+3. Why I focused on
+
+- year published: to see how the relevancy of Biden is on the new sources, with focus on 2020 and 2024 where those are the election years for the president
+- likes to view ratio: likes to view ratio tend to show positive and negative engagement of the video from the general masses, where if it has a high like to view then it is received positively and if the inverse negatively
+
+
+## Dyanmic Data story
+
+![](data_story.gif)
+
+### why my story is creative:
+- I went out of the curriculum to learn about how pie charts worked and used a pie chart to visualize my data
+- I put additional information on separate slides as I wanted to explain the graphs in a more indepth manner
+
+
+## Learning reflection:
+
+1. I have learnt how to use the API written to fetch relevant data from required Youtube channels to do analysis, better use of of ggplot to create graphs and also dynamically create a data story to convey my findings.
+2. I have learnt how to go to the source page to find Youtube Channel ID
+3. I want to in the future learn how to write my own API for scrapping data and information from the internet such as Youtube, perhaps learn how to fetch the comments from the videos and do more analysis on them such as sentiment analysis to get a more accurate view of the masses opinions on current political figures.
+
+
+## Appendix
+
+```{r file='visualisations.R', eval=FALSE, echo=TRUE}
+
+```
+
+```{r file='data_story.R', eval=FALSE, echo=TRUE}
+
+```

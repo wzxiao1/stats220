@@ -7,7 +7,7 @@
    1.  [magick](https://cran.r-project.org/web/packages/magick/vignettes/intro.html)
    2. [Tidyverse](https://www.tidyverse.org/) 
 
-3. **unknown**
-4. **unknown**
-5. **unknown**
-6. **unknown**
+2. **Data visualization**
+3. **API -> Data frame -> Data visualization -> GIF creation**
+4. **Data visualization + GIF creation**
+5. **Web scrapping**

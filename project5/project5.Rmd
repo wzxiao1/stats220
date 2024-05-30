@@ -1,0 +1,56 @@
+---
+title: "project5"
+output:
+  html_document:
+    code_folding: hide
+date: "2024-05-22"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=TRUE, message=FALSE, warning=FALSE, error=FALSE)
+```
+
+## Part A
+
+### My data context:
+I choose the 'weather of wellington' as my data context, as I believe there would be a lot of information out there to be scraped, and the weather would be a very public data that can be very impactful for making decisions regarding events or out door activities 
+
+```{r file='partA.R'}
+
+```
+
+## Part B
+
+You can also embed plots, for example:
+
+```{r file='partB.R', results='hide'}
+
+```
+the total number of characters in Seymour's release content is $`r total_char`$
+the mean number of character in Seymour's release content is $`r mean_nchar_rounded`$
+the median number of character in Seymour's release content is $`r median_nchar`$
+the longest number of characters in Seymour's release content per paragraph is  $`r largest_nchar`$
+
+
+## Part C
+
+- I made a bar graph, where each bar is the total number of speeches that year, and the different colours of the bar correspond to the portions of speeches in regard of the keywords
+
+- the visualisation shows that the total number of speeches regarding the topics of collaboration, education, and employment increased from 1996 to 2006, and the years afterwards have been decreasing (until 2023)
+
+- the visualisation also reveals that out of the 3, that collaboration as a topic of speech is the lowest compared to the other two topics and education and employment being similar
+
+```{r file='partC.R'}
+
+```
+
+## Learning reflection
+
+- I learnt how to webscrape and how to check the robots.txt on website to see what actions are allowed and what actions are not. I have learnt how to efficiently look into html of websites that are scrappable and process them into csv's and then dataframes for statistical and data visualisation with R.
+
+- I would like to look into how to make better web scrapers or maybe APIs that Anna made for us in the previous projects to scrape Youtube comments or other information
+
+## Self reflection
+- The two most important skills I have learnt through these projects are webscraping and data visualization. I believe that webscraping opens up many opportunities for me to access the vast amounts of data on the internet for either statistical analysis or for may be in the future training machine learning models. Data visualization is also important in the sense that it helps seeing complex sets of data in a visual style so that it becomes more accessible for everyone including those with limited statistics backgrounds, and it will surely help with making informative decisions.
+
+
